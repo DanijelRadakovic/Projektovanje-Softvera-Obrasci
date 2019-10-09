@@ -8,10 +8,13 @@ provided by the client code.
 */
 public class AccountRepositoryFactory {
 
+    private static final String JPA_ACCOUNT = "jpa";
+    private static final String JDBC_ACCOUNT = "jdbc";
+
     public static AccountRepository getInstance(String type) {
-        if (type.toLowerCase().equals("jpa")) {
+        if (type.toLowerCase().equals(JPA_ACCOUNT)) {
             return new JpaAccountRepository();
-        } else if (type.toLowerCase().equals("jdbc")) {
+        } else if (type.toLowerCase().equals(JDBC_ACCOUNT)) {
             return new JdbcAccountRepository();
         } else {
             throw new IllegalArgumentException("Could not create account repository, unrecognized type: " + type);
