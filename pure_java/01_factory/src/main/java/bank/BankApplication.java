@@ -1,8 +1,10 @@
 package bank;
 
 import bank.model.Amount;
+import bank.repository.account.AccountRepositoryFactory;
+import bank.repository.transfer.TransferRepositoryFactory;
 import bank.service.TransferService;
-import bank.service.TransferServiceFactory;
+import bank.service.TransferServiceImpl;
 
 import java.math.BigDecimal;
 
@@ -18,15 +20,24 @@ public class BankApplication {
 
 
         // get transfer service based on JPA repositories
-        transferService = TransferServiceFactory.getJpaTransferService();
+        transferService = new TransferServiceImpl(
+                AccountRepositoryFactory.getInstance("jpa"),
+                TransferRepositoryFactory.getInstance("jpa")
+        );
         transferService.transferAmount(georgeId, coreyId, amount);
 
         // get transfer service based on JDBC repositories
-        transferService = TransferServiceFactory.getJdbcTransferService();
+        transferService = new TransferServiceImpl(
+                AccountRepositoryFactory.getInstance("jdbc"),
+                TransferRepositoryFactory.getInstance("jdbc")
+        );
         transferService.transferAmount(georgeId, coreyId, amount);
 
         // get transfer service with custom repositories
-        transferService = TransferServiceFactory.getInstance("jdbc", "jpa");
+        transferService = new TransferServiceImpl(
+                AccountRepositoryFactory.getInstance("jpa"),
+                TransferRepositoryFactory.getInstance("jdbc")
+        );
         transferService.transferAmount(georgeId, coreyId, amount);
     }
 }
