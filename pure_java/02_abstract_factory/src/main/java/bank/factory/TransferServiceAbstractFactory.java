@@ -20,5 +20,6 @@ Abstract factory knows about all (abstract) product types.
 public abstract class TransferServiceAbstractFactory {
 
     public abstract AccountRepository getAccountRepository();
+
     public abstract TransferRepository getTransferRepository();
 }

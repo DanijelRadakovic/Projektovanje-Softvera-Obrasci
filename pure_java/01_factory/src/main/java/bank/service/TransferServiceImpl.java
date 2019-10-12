@@ -7,21 +7,21 @@ import bank.repository.transfer.TransferRepository;
 
 public class TransferServiceImpl implements TransferService {
 
-	private AccountRepository accountRepository;
-	
-	private TransferRepository transferRepository;
+    private AccountRepository accountRepository;
 
-	// This is Dependency Injection, more specifically Constructor Injection
-	public TransferServiceImpl(AccountRepository accountRepository, TransferRepository transferRepository) {
-		this.accountRepository = accountRepository;
-		this.transferRepository = transferRepository;
-	}
+    private TransferRepository transferRepository;
 
-	@Override
-	public void transferAmount(Long a, Long b, Amount amount) {
-		Account accountA = accountRepository.findByAccountId(a);
-		Account accountB = accountRepository.findByAccountId(b);
-		transferRepository.transfer(accountA, accountB, amount);
-	}
+    // This is Dependency Injection, more specifically Constructor Injection
+    public TransferServiceImpl(AccountRepository accountRepository, TransferRepository transferRepository) {
+        this.accountRepository = accountRepository;
+        this.transferRepository = transferRepository;
+    }
+
+    @Override
+    public void transferAmount(Long a, Long b, Amount amount) {
+        Account accountA = accountRepository.findByAccountId(a);
+        Account accountB = accountRepository.findByAccountId(b);
+        transferRepository.transfer(accountA, accountB, amount);
+    }
 
 }

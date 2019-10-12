@@ -14,7 +14,8 @@ public class BankApplication {
         Long georgeId, coreyId;
         Amount amount;
 
-        georgeId = 1L; coreyId = 2L;
+        georgeId = 1L;
+        coreyId = 2L;
         amount = new Amount(new BigDecimal(2000));
 
         // get transfer service based on JPA repositories

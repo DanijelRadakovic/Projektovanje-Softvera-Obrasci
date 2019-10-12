@@ -18,7 +18,8 @@ public class DataBaseConnection {
 
     private static DataBaseConnection instance;
 
-    private DataBaseConnection() {}
+    private DataBaseConnection() {
+    }
 
     public static DataBaseConnection getInstance() {
         if (instance == null) {

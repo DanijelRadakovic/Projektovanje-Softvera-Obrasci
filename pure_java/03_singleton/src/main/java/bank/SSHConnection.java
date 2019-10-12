@@ -17,7 +17,8 @@ public class SSHConnection {
 
     private static final SSHConnection INSTANCE = new SSHConnection();
 
-    private SSHConnection() {}
+    private SSHConnection() {
+    }
 
     public static SSHConnection getInstance() {
         return INSTANCE;

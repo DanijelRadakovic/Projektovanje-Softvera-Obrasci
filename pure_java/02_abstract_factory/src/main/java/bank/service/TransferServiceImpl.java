@@ -8,20 +8,20 @@ import bank.repository.transfer.TransferRepository;
 
 public class TransferServiceImpl implements TransferService {
 
-	private AccountRepository accountRepository;
-	
-	private TransferRepository transferRepository;
+    private AccountRepository accountRepository;
 
-	public TransferServiceImpl(TransferServiceAbstractFactory factory) {
-		this.accountRepository = factory.getAccountRepository();
-		this.transferRepository = factory.getTransferRepository();
-	}
+    private TransferRepository transferRepository;
 
-	@Override
-	public void transferAmount(Long a, Long b, Amount amount) {
-		Account accountA = accountRepository.findByAccountId(a);
-		Account accountB = accountRepository.findByAccountId(b);
-		transferRepository.transfer(accountA, accountB, amount);
-	}
+    public TransferServiceImpl(TransferServiceAbstractFactory factory) {
+        this.accountRepository = factory.getAccountRepository();
+        this.transferRepository = factory.getTransferRepository();
+    }
+
+    @Override
+    public void transferAmount(Long a, Long b, Amount amount) {
+        Account accountA = accountRepository.findByAccountId(a);
+        Account accountB = accountRepository.findByAccountId(b);
+        transferRepository.transfer(accountA, accountB, amount);
+    }
 
 }

@@ -1,7 +1,5 @@
 package bank.repository.account;
 
-import javax.naming.OperationNotSupportedException;
-
 /*
 Factory Pattern
 
