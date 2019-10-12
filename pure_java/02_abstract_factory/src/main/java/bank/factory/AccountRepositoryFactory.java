@@ -27,7 +27,7 @@ class AccountRepositoryFactory {
         } else if (type.equalsIgnoreCase(JDBC_ACCOUNT)) {
             return new JdbcAccountRepository();
         } else {
-            throw new IllegalArgumentException("Could not create account repository, unrecognized type: " + type);
+            throw new UnsupportedOperationException("Could not create account repository, unrecognized type: " + type);
         }
     }
 }

@@ -27,7 +27,7 @@ class TransferRepositoryFactory {
         } else if (type.equalsIgnoreCase(JDBC_TRANSFER)) {
             return new JdbcTransferRepository();
         } else {
-            throw new IllegalArgumentException("Could not create transfer repository, unrecognized type: " + type);
+            throw new UnsupportedOperationException("Could not create transfer repository, unrecognized type: " + type);
         }
     }
 }
