@@ -1,5 +1,7 @@
 package bank.repository.account;
 
+import javax.naming.OperationNotSupportedException;
+
 /*
 Factory Pattern
 
@@ -23,7 +25,7 @@ public class AccountRepositoryFactory {
         } else if (accountType.equalsIgnoreCase(JDBC_ACCOUNT)) {
             return new JdbcAccountRepository();
         } else {
-            throw new IllegalArgumentException("Could not create account repository, unrecognized type: "
+            throw new UnsupportedOperationException("Could not create account repository, unrecognized type: "
                     + accountType);
         }
     }

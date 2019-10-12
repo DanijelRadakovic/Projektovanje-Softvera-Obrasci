@@ -12,6 +12,7 @@ allow a direct instantiation of an object of this class. It allows you to get an
 object instance only by an exposed static method.
 
 This is a variation of Singleton pattern where lazy initialization is used.
+Lazy initialization requires thread-safe getInstance() method
 */
 public class DataBaseConnection {
 
@@ -21,7 +22,11 @@ public class DataBaseConnection {
 
     public static DataBaseConnection getInstance() {
         if (instance == null) {
-            instance = new DataBaseConnection();
+            synchronized (DataBaseConnection.class) {
+                if (instance == null) {
+                    instance = new DataBaseConnection();
+                }
+            }
         }
         return instance;
     }
