@@ -20,11 +20,14 @@ public class BusinessAccount extends Account {
         try {
             /*
              super.clone() return shallow copy of object which means that they
-             have same reference to terms object.
+             have same reference to BusinessTerms object.
 
              clone.getTerms() == this.getTerms() --> true
             */
             clone = (Account) super.clone();
+
+            // create deep copy of BusinessTerms
+            ((BusinessAccount) clone).terms = (BusinessTerms) terms.clone();
         } catch (CloneNotSupportedException e) {
             e.printStackTrace();
         }
@@ -38,4 +41,6 @@ public class BusinessAccount extends Account {
     public void setTerms(BusinessTerms terms) {
         this.terms = terms;
     }
+
+
 }

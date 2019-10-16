@@ -14,18 +14,20 @@ public class SavingAccount extends Account {
         this.terms = terms;
     }
 
-
     @Override
     public Account cloneAccount() {
         Account clone = null;
         try {
             /*
              super.clone() return shallow copy of object which means that they
-             have same reference to terms object.
+             have same reference to SavingTerms object.
 
              clone.getTerms() == this.getTerms() --> true
             */
             clone = (Account) super.clone();
+
+            // create deep copy of SavingTerms
+            ((SavingAccount) clone).terms = (SavingTerms) terms.clone();
         } catch (CloneNotSupportedException e) {
             e.printStackTrace();
         }

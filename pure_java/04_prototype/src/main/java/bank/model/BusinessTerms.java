@@ -1,6 +1,6 @@
 package bank.model;
 
-public class BusinessTerms {
+public class BusinessTerms implements Cloneable {
 
     private double maintenanceCosts;
     private double commissionFee;
@@ -11,6 +11,11 @@ public class BusinessTerms {
     public BusinessTerms(double maintenanceCosts, double commissionFee) {
         this.maintenanceCosts = maintenanceCosts;
         this.commissionFee = commissionFee;
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 
     public double getMaintenanceCosts() {
