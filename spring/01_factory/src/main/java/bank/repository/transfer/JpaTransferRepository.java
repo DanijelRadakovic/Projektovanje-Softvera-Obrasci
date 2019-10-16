@@ -1,7 +1,7 @@
 package bank.repository.transfer;
 
-import bank.model.Account;
-import bank.model.Amount;
+import bank.domain.Account;
+import bank.domain.Amount;
 
 public class JpaTransferRepository implements TransferRepository {
 

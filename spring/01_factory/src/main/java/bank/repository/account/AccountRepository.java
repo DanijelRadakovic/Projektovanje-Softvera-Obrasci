@@ -1,6 +1,6 @@
 package bank.repository.account;
 
-import bank.model.Account;
+import bank.domain.Account;
 
 public interface AccountRepository {
 

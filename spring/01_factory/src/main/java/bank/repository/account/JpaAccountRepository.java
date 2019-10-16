@@ -1,7 +1,7 @@
 package bank.repository.account;
 
-import bank.model.Account;
-import bank.model.Amount;
+import bank.domain.Account;
+import bank.domain.Amount;
 
 import java.math.BigDecimal;
 

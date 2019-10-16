@@ -1,5 +1,7 @@
 package bank.repository.account;
 
+import org.springframework.stereotype.Component;
+
 /*
 Factory Pattern
 
@@ -12,12 +14,13 @@ it uses factory method in order to crate object instances. So this method actual
 centralizes the use of the new operator. It creates the object instances based on the
 information provided by the client.
 */
+@Component
 public class AccountRepositoryFactory {
 
     private static final String JPA_ACCOUNT = "jpa";
     private static final String JDBC_ACCOUNT = "jdbc";
 
-    public static AccountRepository getInstance(String accountType) {
+    public AccountRepository getInstance(String accountType) {
         if (accountType.equalsIgnoreCase(JPA_ACCOUNT)) {
             return new JpaAccountRepository();
         } else if (accountType.equalsIgnoreCase(JDBC_ACCOUNT)) {

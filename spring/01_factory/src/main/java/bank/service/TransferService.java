@@ -1,6 +1,6 @@
 package bank.service;
 
-import bank.model.Amount;
+import bank.domain.Amount;
 
 public interface TransferService {
 

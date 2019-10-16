@@ -1,10 +1,12 @@
 package bank.service;
 
-import bank.model.Account;
-import bank.model.Amount;
+import bank.domain.Account;
+import bank.domain.Amount;
 import bank.repository.account.AccountRepository;
 import bank.repository.transfer.TransferRepository;
+import org.springframework.stereotype.Service;
 
+@Service
 public class TransferServiceImpl implements TransferService {
 
     private AccountRepository accountRepository;
