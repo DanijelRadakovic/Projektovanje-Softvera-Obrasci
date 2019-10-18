@@ -86,5 +86,24 @@ public class BankApplication {
         report = contractReportBuilder.build();
 
         System.out.println(report);
+
+        // constructing object using lombok library
+        bank.lombokbuilder.Contract contract = bank.lombokbuilder.Contract
+                .builder()
+                .personalID("123")
+                .firstName("George")
+                .lastName("Peterson")
+                .build();
+
+        System.out.println(
+                bank.lombokbuilder.ContractReport
+                        .builder()
+                        .personalID("456")
+                        .firstName("George")
+                        .lastName("Peterson")
+                        .dateOfBirth(LocalDate.of(1990, 5, 3))
+                        .build()
+        );
+
     }
 }
