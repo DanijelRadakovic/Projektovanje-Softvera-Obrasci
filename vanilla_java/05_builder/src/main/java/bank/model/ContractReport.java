@@ -1,5 +1,7 @@
 package bank.model;
 
+import com.sun.istack.internal.Nullable;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -7,25 +9,25 @@ public class ContractReport {
 
     private String personalID;
     private String firstName;
-    private String parentsName;
+    private String middleName; // optional
     private String lastName;
     private LocalDate dateOfBirth;
     private String countryOfBirth;
     private String placeOfBirth;
     private String address;
-    private String occupation;
-    private String company;
-    private Double salary;
+    private String occupation; // optional
+    private String company; // optional
+    private Double salary; // optional
 
     public ContractReport() {
     }
 
-    public ContractReport(String personalID, String firstName, String parentsName, String lastName,
+    public ContractReport(String personalID, String firstName, @Nullable String middleName, String lastName,
                           LocalDate dateOfBirth, String countryOfBirth, String placeOfBirth, String address,
-                          String occupation, String company, Double salary) {
+                          @Nullable String occupation, @Nullable String company, @Nullable Double salary) {
         this.personalID = personalID;
         this.firstName = firstName;
-        this.parentsName = parentsName;
+        this.middleName = middleName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
         this.countryOfBirth = countryOfBirth;
@@ -135,11 +137,11 @@ public class ContractReport {
                 .toString();
     }
 
-    public String getParentsName() {
-        return parentsName;
+    public String getMiddleName() {
+        return middleName;
     }
 
-    public void setParentsName(String parentsName) {
-        this.parentsName = parentsName;
+    public void setMiddleName(String middleName) {
+        this.middleName = middleName;
     }
 }

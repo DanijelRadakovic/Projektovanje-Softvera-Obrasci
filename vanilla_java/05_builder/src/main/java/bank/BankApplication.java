@@ -20,7 +20,7 @@ public class BankApplication {
                 null, null, null
         );
 
-        Contract contract2 = new Contract(        // Tom has parent issues
+        Contract contract2 = new Contract(
                 "456", "Tom", null, "Cobain",
                 LocalDate.of(1992, 10, 23),
                 "USA", "New York", "Minetta Street 26",

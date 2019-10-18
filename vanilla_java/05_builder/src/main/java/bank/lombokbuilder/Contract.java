@@ -9,7 +9,7 @@ public class Contract {
 
     private String personalID;
     private String firstName;
-    private String parentsName;
+    private String middleName;
     private String lastName;
     private LocalDate dateOfBirth;
     private String countryOfBirth;
