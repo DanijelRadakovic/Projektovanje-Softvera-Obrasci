@@ -1,0 +1,90 @@
+package bank;
+
+import bank.builder.ContractBuilder;
+import bank.builder.ContractReportBuilder;
+import bank.builder.Director;
+import bank.model.Contract;
+import bank.model.ContractReport;
+
+import java.time.LocalDate;
+
+public class BankApplication {
+
+    public static void main(String[] args) {
+
+        // constructing object using constructor
+        Contract contract1 = new Contract(
+                "123", "Anna", "Viper", "Viper",
+                LocalDate.of(1993, 7, 15),
+                "USA", "New York", "Washington Street 12",
+                null, null, null
+        );
+
+        Contract contract2 = new Contract(        // Tom has parent issues
+                "456", "Tom", null, "Cobain",
+                LocalDate.of(1992, 10, 23),
+                "USA", "New York", "Minetta Street 26",
+                "Web Developer", "New York Solutions", new Double("3000")
+        );
+
+        ContractReport report = new ContractReport(
+                "456", "Tom", null, "Cobain",
+                LocalDate.of(1992, 10, 23),
+                "USA", "New York", "Minetta Street 26",
+                "Web Developer", "New York Solutions", new Double("3000")
+        );
+        System.out.println(report);
+
+        // constructing object using builder directly
+        ContractBuilder contractBuilder = new ContractBuilder();
+        ContractReportBuilder contractReportBuilder = new ContractReportBuilder();
+
+        contract1 = contractBuilder
+                .setPersonalID("123")
+                .setFirstName("Anna")
+                .setLastName("Viper")
+                .setParentsName("Peter")
+                .setCountryOfBirth("USA")
+                .setAddress("Washington Street 12")
+                .setDateOfBirth(LocalDate.of(1993, 7, 15))
+                .setPlaceOfBirth("New York") // no need to set null values for occupation, salary and company
+                .build();
+
+        contract2 = contractBuilder
+                .setFirstName("Tom")
+                .setLastName("Cobain")
+                .setCountryOfBirth("USA")
+                .setAddress("Minetta Street 26")
+                .setDateOfBirth(LocalDate.of(1992, 10, 23))
+                .setPlaceOfBirth("New York")
+                .setOccupation("Web Developer")
+                .setCompany("New York Solutions")
+                .setSalary(new Double("3000"))
+                .build();
+
+
+        report = contractReportBuilder
+                .setFirstName("Tom")
+                .setLastName("Cobain")
+                .setCountryOfBirth("USA")
+                .setAddress("Minetta Street 26")
+                .setDateOfBirth(LocalDate.of(1992, 10, 23))
+                .setPlaceOfBirth("New York")
+                .setOccupation("Web Developer")
+                .setCompany("New York Solutions")
+                .setSalary(new Double("3000"))
+                .build();
+        System.out.println(report);
+
+        // constructing object using director
+        Director director = new Director();
+
+        director.constructBusinessContract(contractBuilder);
+        contract1 = contractBuilder.build();
+
+        director.constructSavingContract(contractReportBuilder);
+        report = contractReportBuilder.build();
+
+        System.out.println(report);
+    }
+}
