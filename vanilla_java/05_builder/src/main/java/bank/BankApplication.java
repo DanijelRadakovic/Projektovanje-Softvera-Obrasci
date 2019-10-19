@@ -24,14 +24,14 @@ public class BankApplication {
                 "456", "Tom", null, "Cobain",
                 LocalDate.of(1992, 10, 23),
                 "USA", "New York", "Minetta Street 26",
-                "Web Developer", "New York Solutions", new Double("3000")
+                "Web Developer", "New York Solutions", Double.valueOf("3000")
         );
 
         ContractReport report = new ContractReport(
                 "456", "Tom", null, "Cobain",
                 LocalDate.of(1992, 10, 23),
                 "USA", "New York", "Minetta Street 26",
-                "Web Developer", "New York Solutions", new Double("3000")
+                "Web Developer", "New York Solutions", Double.valueOf("3000")
         );
         System.out.println(report);
 
@@ -59,7 +59,7 @@ public class BankApplication {
                 .setPlaceOfBirth("New York")
                 .setOccupation("Web Developer")
                 .setCompany("New York Solutions")
-                .setSalary(new Double("3000"))
+                .setSalary(Double.valueOf("3000"))
                 .build();
 
 
@@ -72,7 +72,7 @@ public class BankApplication {
                 .setPlaceOfBirth("New York")
                 .setOccupation("Web Developer")
                 .setCompany("New York Solutions")
-                .setSalary(new Double("3000"))
+                .setSalary(Double.valueOf("3000"))
                 .build();
         System.out.println(report);
 
@@ -88,6 +88,8 @@ public class BankApplication {
         System.out.println(report);
 
         // constructing object using lombok library
+        // you need to install lombok plugin for your IDE
+        // visit https://www.baeldung.com/lombok-ide
         bank.lombokbuilder.Contract contract = bank.lombokbuilder.Contract
                 .builder()
                 .personalID("123")

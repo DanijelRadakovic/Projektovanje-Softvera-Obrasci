@@ -28,7 +28,7 @@ public class Director {
                 .setPlaceOfBirth("New York")
                 .setOccupation("Web Developer")
                 .setCompany("New York Solutions")
-                .setSalary(new Double("3000"));
+                .setSalary(Double.valueOf("3000"));
     }
 
 }

@@ -1,6 +1,8 @@
 package bank.model;
 
-import com.sun.istack.internal.Nullable;
+
+
+import jdk.internal.jline.internal.Nullable;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

@@ -1,11 +1,13 @@
 package bank.lombokbuilder;
 
 import lombok.Builder;
+import lombok.Getter;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 @Builder
+@Getter
 public class ContractReport {
 
     private String personalID;

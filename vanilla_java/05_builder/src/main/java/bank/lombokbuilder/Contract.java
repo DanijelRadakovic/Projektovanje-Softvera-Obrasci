@@ -1,10 +1,12 @@
 package bank.lombokbuilder;
 
 import lombok.Builder;
+import lombok.Getter;
 
 import java.time.LocalDate;
 
 @Builder
+@Getter
 public class Contract {
 
     private String personalID;

@@ -9,8 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>spring-design-patterns</groupId>
-	<artifactId>prototype</artifactId>
+	<artifactId>builder</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+
 
 	<properties>
 		<java.version>11</java.version>
@@ -26,6 +27,13 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.10</version>
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 
