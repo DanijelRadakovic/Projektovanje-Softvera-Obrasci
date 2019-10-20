@@ -8,6 +8,7 @@ import bank.model.ContractReport;
 
 import java.time.LocalDate;
 
+// Lombok tutorial https://www.baeldung.com/tag/lombok/
 public class BankApplication {
 
     public static void main(String[] args) {
