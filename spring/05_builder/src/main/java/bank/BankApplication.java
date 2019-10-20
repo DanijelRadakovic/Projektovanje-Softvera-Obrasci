@@ -26,7 +26,7 @@ public class BankApplication implements ApplicationRunner {
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 
-		// @Singular annotation crates immutable collection
+		// @Singular annotation crates immutable collection which means collection is thread-safe
 		try {
 			connection1.getNodes().add("workstation2");
 		} catch (UnsupportedOperationException e) {
