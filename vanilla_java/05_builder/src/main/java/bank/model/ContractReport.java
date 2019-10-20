@@ -1,9 +1,5 @@
 package bank.model;
 
-
-
-import jdk.internal.jline.internal.Nullable;
-
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -24,9 +20,9 @@ public class ContractReport {
     public ContractReport() {
     }
 
-    public ContractReport(String personalID, String firstName, @Nullable String middleName, String lastName,
+    public ContractReport(String personalID, String firstName, String middleName, String lastName,
                           LocalDate dateOfBirth, String countryOfBirth, String placeOfBirth, String address,
-                          @Nullable String occupation, @Nullable String company, @Nullable Double salary) {
+                          String occupation, String company, Double salary) {
         this.personalID = personalID;
         this.firstName = firstName;
         this.middleName = middleName;
