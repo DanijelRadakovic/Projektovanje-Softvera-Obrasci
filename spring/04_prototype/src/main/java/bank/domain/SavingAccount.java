@@ -1,13 +1,13 @@
 package bank.domain;
 
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+@Primary
 @Component("savingAccount")
 @Scope("prototype")
-@Qualifier("savingAccount")
 public class SavingAccount extends Account {
 
     private SavingTerms terms;
@@ -32,7 +32,6 @@ public class SavingAccount extends Account {
 
     @Bean("savingAccountPrototype")
     @Scope("prototype")
-    @Qualifier("savingAccountPrototype")
     public static SavingAccount clone(SavingAccount account) {
         return new SavingAccount(account);
     }
