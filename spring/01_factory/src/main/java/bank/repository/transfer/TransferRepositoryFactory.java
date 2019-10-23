@@ -39,7 +39,7 @@ public class TransferRepositoryFactory implements FactoryBean<TransferRepository
 
     @Override
     public Class<?> getObjectType() {
-        return null;
+        return TransferRepository.class;
     }
 
     @Override

@@ -14,8 +14,7 @@ public class TransferServiceImpl implements TransferService {
 
     private TransferRepository transferRepository;
 
-    public TransferServiceImpl(@Qualifier("jpaAccountRepository") AccountRepository accountRepository,
-                               @Qualifier("jpaTransferRepository") TransferRepository transferRepository) {
+    public TransferServiceImpl(AccountRepository accountRepository, TransferRepository transferRepository) {
         this.accountRepository = accountRepository;
         this.transferRepository = transferRepository;
     }

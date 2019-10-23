@@ -8,24 +8,13 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AppConfig {
 
-    @Bean("jpaTransferRepository")
+    @Bean("transferRepository")
     public TransferRepositoryFactory jpaTransferRepositoryFactory() {
         return new TransferRepositoryFactory("jpa");
     }
 
-    @Bean("jpaAccountRepository")
+    @Bean("accountRepository")
     public AccountRepositoryFactory jpaAccountRepositoryFactory() {
         return new AccountRepositoryFactory("jpa");
     }
-
-    @Bean("jdbcTransferRepository")
-    public TransferRepositoryFactory jdbcTransferRepositoryFactory() {
-        return new TransferRepositoryFactory("jdbc");
-    }
-
-    @Bean("jdbcAccountRepository")
-    public AccountRepositoryFactory jdbcAccountRepositoryFactory() {
-        return new AccountRepositoryFactory("jdbc");
-    }
-
 }
