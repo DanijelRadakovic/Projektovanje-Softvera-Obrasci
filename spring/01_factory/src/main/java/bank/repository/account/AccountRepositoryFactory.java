@@ -1,6 +1,6 @@
 package bank.repository.account;
 
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.FactoryBean;
 
 /*
 Factory Pattern
@@ -14,13 +14,19 @@ it uses factory method in order to crate object instances. So this method actual
 centralizes the use of the new operator. It creates the object instances based on the
 information provided by the client.
 */
-@Component
-public class AccountRepositoryFactory {
+public class AccountRepositoryFactory implements FactoryBean<AccountRepository> {
 
     private static final String JPA_ACCOUNT = "jpa";
     private static final String JDBC_ACCOUNT = "jdbc";
 
-    public AccountRepository getInstance(String accountType) {
+    private String accountType;
+
+    public AccountRepositoryFactory(String accountType) {
+        this.accountType = accountType;
+    }
+
+    @Override
+    public AccountRepository getObject() throws Exception {
         if (accountType.equalsIgnoreCase(JPA_ACCOUNT)) {
             return new JpaAccountRepository();
         } else if (accountType.equalsIgnoreCase(JDBC_ACCOUNT)) {
@@ -29,5 +35,23 @@ public class AccountRepositoryFactory {
             throw new UnsupportedOperationException("Could not create account repository, unrecognized type: "
                     + accountType);
         }
+    }
+
+    @Override
+    public Class<?> getObjectType() {
+        return AccountRepository.class;
+    }
+
+    @Override
+    public boolean isSingleton() {
+        return false;
+    }
+
+    public String getAccountType() {
+        return accountType;
+    }
+
+    public void setAccountType(String accountType) {
+        this.accountType = accountType;
     }
 }

@@ -1,6 +1,6 @@
 package bank.repository.transfer;
 
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.FactoryBean;
 
 /*
 Factory Pattern
@@ -14,13 +14,19 @@ it uses factory method in order to crate object instances. So this method actual
 centralizes the use of the new operator. It creates the object instances based on the
 information provided by the client.
 */
-@Component
-public class TransferRepositoryFactory {
+public class TransferRepositoryFactory implements FactoryBean<TransferRepository> {
 
     private static final String JPA_TRANSFER = "jpa";
     private static final String JDBC_TRANSFER = "jdbc";
 
-    public TransferRepository getInstance(String transferType) {
+    private String transferType;
+
+    public TransferRepositoryFactory(String transferType) {
+        this.transferType = transferType;
+    }
+
+    @Override
+    public TransferRepository getObject() throws Exception {
         if (transferType.equalsIgnoreCase(JPA_TRANSFER)) {
             return new JpaTransferRepository();
         } else if (transferType.equalsIgnoreCase(JDBC_TRANSFER)) {
@@ -29,5 +35,23 @@ public class TransferRepositoryFactory {
             throw new UnsupportedOperationException("Could not create transfer repository, unrecognized type: "
                     + transferType);
         }
+    }
+
+    @Override
+    public Class<?> getObjectType() {
+        return null;
+    }
+
+    @Override
+    public boolean isSingleton() {
+        return false;
+    }
+
+    public String getTransferType() {
+        return transferType;
+    }
+
+    public void setTransferType(String transferType) {
+        this.transferType = transferType;
     }
 }
