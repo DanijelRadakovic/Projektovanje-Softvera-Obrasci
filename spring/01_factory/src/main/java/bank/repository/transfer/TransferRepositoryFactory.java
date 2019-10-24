@@ -44,7 +44,7 @@ public class TransferRepositoryFactory implements FactoryBean<TransferRepository
 
     @Override
     public boolean isSingleton() {
-        return false;
+        return true;
     }
 
     public String getTransferType() {

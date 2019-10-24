@@ -44,7 +44,7 @@ public class AccountRepositoryFactory implements FactoryBean<AccountRepository> 
 
     @Override
     public boolean isSingleton() {
-        return false;
+        return true;
     }
 
     public String getAccountType() {
