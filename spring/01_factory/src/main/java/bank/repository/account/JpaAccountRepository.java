@@ -5,7 +5,7 @@ import bank.domain.Amount;
 
 import java.math.BigDecimal;
 
-public class JpaAccountRepository implements AccountRepository {
+class JpaAccountRepository implements AccountRepository {
 
     @Override
     public Account findByAccountId(Long accountId) {
